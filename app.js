@@ -1,29 +1,13 @@
-/*let nombre=prompt("Ingrese su nombre")
-
-console.log("Hola como estas hoy "+ nombre.charAt(0).toUpperCase() + nombre.slice(1) );
-
-let numero1=prompt("Ingrese un numero");
-let numero2=Number(prompt("Ingrese otro numero")) ;
-
-console.log(parseInt(numero1)+numero2);
-
-
-
-let texto=prompt("Ingrese primer texto");
-let texto2=prompt("Ingrese segundo texto");
-
-alert(texto+"  "+texto2);
-*/
 let condicionRepetir = true;
 let pagoConTarjeta = false;
 
 class Compra {
-  constructor(nombreSolucion, precio, descuento, moneda, metodoPago) {
+  constructor(nombreSolucion, precio, moneda, metodoPago, descuento) {
     this.nombreSolucion = nombreSolucion;
     this.precioBase = precio;
-    this.descuento = descuento;
     this.moneda = moneda;
     this.metodoPago = metodoPago;
+    this.descuento = descuento;
   }
 }
 
@@ -37,22 +21,15 @@ do {
       "3)Portal de noticias (15000 UYU)"
   );
 
-  var answer = window.confirm(
-    "¿Desea pagar con credito? (Se aplicara un descuento adicional del 10%)"
-  );
-
-  if (answer) {
-    pagoConTarjeta = true;
-  }
-
   switch (parseInt(numCurso)) {
     case 1:
+      pagoConTarjeta = usaTarjeta(pagoConTarjeta);
       var com = new Compra(
         "software de finanzas",
         1000,
-        descuento10(1000, pagoConTarjeta),
         "USD",
-        pagoConTarjeta
+        pagoConTarjeta,
+        descuento10(1000, pagoConTarjeta)
       );
       alert(
         "Gracias por tu compra de " +
@@ -68,12 +45,13 @@ do {
       break;
 
     case 2:
+      pagoConTarjeta = usaTarjeta(pagoConTarjeta);
       var com = new Compra(
         "eCommerce",
         3000,
-        descuento10(3000, pagoConTarjeta),
         "UYU",
-        pagoConTarjeta
+        pagoConTarjeta,
+        descuento10(3000, pagoConTarjeta)
       );
       alert(
         "Gracias por tu compra de " +
@@ -89,12 +67,13 @@ do {
       break;
 
     case 3:
+      pagoConTarjeta = usaTarjeta(pagoConTarjeta);
       var com = new Compra(
         "portal de noticias",
         15000,
-        descuento10(15000, pagoConTarjeta),
         "UYU",
-        pagoConTarjeta
+        pagoConTarjeta,
+        descuento10(15000, pagoConTarjeta)
       );
       alert(
         "Gracias por tu compra de " +
@@ -119,6 +98,19 @@ do {
       }
   }
 } while (condicionRepetir);
+
+function usaTarjeta(pagoConTarjeta) {
+  var answer = window.confirm(
+    "¿Desea pagar con credito? (Se aplicara un descuento adicional del 10%)"
+  );
+
+  if (answer) {
+    pagoConTarjeta = true;
+    return pagoConTarjeta;
+  } else {
+    return pagoConTarjeta;
+  }
+}
 
 function descuento10(precioBase, aplicarDescuento) {
   if (aplicarDescuento) {
