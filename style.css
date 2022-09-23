@@ -30,6 +30,23 @@ body {
     
 }
 
+.carrito{
+    position: relative; 
+}
+
+#contadorCarrito{
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 60px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+
 #cursoComprado{
     display: flex;
     flex-direction: column;
