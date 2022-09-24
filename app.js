@@ -32,7 +32,9 @@ carrito.onclick = () => {
 }
 
 buttonJava.onclick = () => {
+    cursoComprado.style.visibility ="visible";
     cursoComprado.innerHTML = "<h2>AGREGASTE EL CURSO <FONT COLOR='red'>JAVA</FONT> AL CARRITO</h2> <img src='https://cdn-icons-png.flaticon.com/512/226/226777.png' width='80px' height='80px'>"
+    setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2000);
     sumarItemCarrito(nodoCarrito);
 
     agregarItemCarrito(1, "JAVA", 200, "./JAVA.png")
@@ -42,19 +44,24 @@ buttonJava.onclick = () => {
 
 
 buttonFull.onclick = () => {
+    cursoComprado.style.visibility ="visible";
     cursoComprado.innerHTML = "<h2>AGREGASTE  EL CURSO  <FONT COLOR='blue'>FULL STACK</FONT> AL CARRITO</h2> <img src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1468442513/ntffgniiqfya5tvzbsol.png' width='80px' height='80px'>"
+    setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2000);
     sumarItemCarrito(nodoCarrito)
     agregarItemCarrito(2, "FULL STACK", 500, "./FULLSTACK.png")
     console.log(cursosComprados)
 }
 
 bttPython.onclick = () => {
+    cursoComprado.style.visibility ="visible";
     cursoComprado.innerHTML = "<h2>AGREGASTE EL CURSO <FONT COLOR='yellow'>PYT</FONT><FONT COLOR='blue'>HON</FONT> AL CARRITO</h2> <img src='https://seeklogo.com/images/P/python-logo-C50EED1930-seeklogo.com.png' width='80px' height='80px'>"
+    setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2000);
+    
     sumarItemCarrito(nodoCarrito)
     agregarItemCarrito(3, "PYTHON", 150, "./PYTHON.png")
 }
 
-function agregarItemCarrito(idProducto, nombreProducto, precioProducto) {
+function agregarItemCarrito(idProducto, nombreProducto, precioProducto, imagenProducto) {
     if (cursosComprados.some(curso => curso.id === idProducto)) {
         //SI EXISTE EL CURSO CON ID 1, LE SUMAMOS UNO A LA CANTIDAD
         cursosComprados.forEach(curso => {
@@ -64,7 +71,7 @@ function agregarItemCarrito(idProducto, nombreProducto, precioProducto) {
         });
     } else {
         //SI NO EXISTE EL CURSO CON ID 1 LO CREAMOS
-        cursosComprados.push(new Producto(idProducto, nombreProducto, precioProducto))
+        cursosComprados.push(new Producto(idProducto, nombreProducto, precioProducto, imagenProducto))
     }
 }
 

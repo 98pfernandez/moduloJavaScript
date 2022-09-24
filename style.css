@@ -77,10 +77,11 @@ h1 {
 }
 
 #listaCarrito {
-    margin-top: 50px;
+    margin: 50px;
     align-content: center;
     display: flex;
     flex-direction: column;
+    border: black solid 3px;
 }
 
 .nombreCarrito {
@@ -161,4 +162,19 @@ h1 {
 .imgCurso{
    width: 200px;
    height: 200px; 
+}
+
+#botonComprar{
+    color: whitesmoke;
+    font-size: 30px;
+    width: 1450px;
+    height: 100px;
+    background-color: rgb(46, 46, 46);
+    border: black solid 3px;
+}
+
+#botonComprar:hover{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(27, 27, 27);
 }
