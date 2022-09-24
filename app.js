@@ -35,7 +35,7 @@ buttonJava.onclick = () => {
     cursoComprado.innerHTML = "<h2>AGREGASTE EL CURSO <FONT COLOR='red'>JAVA</FONT> AL CARRITO</h2> <img src='https://cdn-icons-png.flaticon.com/512/226/226777.png' width='80px' height='80px'>"
     sumarItemCarrito(nodoCarrito);
 
-    agregarItemCarrito(1, "CURSO JAVA", 900)
+    agregarItemCarrito(1, "JAVA", 200, "./JAVA.png")
 
     console.log(cursosComprados)
 }
@@ -44,14 +44,14 @@ buttonJava.onclick = () => {
 buttonFull.onclick = () => {
     cursoComprado.innerHTML = "<h2>AGREGASTE  EL CURSO  <FONT COLOR='blue'>FULL STACK</FONT> AL CARRITO</h2> <img src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1468442513/ntffgniiqfya5tvzbsol.png' width='80px' height='80px'>"
     sumarItemCarrito(nodoCarrito)
-    agregarItemCarrito(2, "CURSO FULL STACK", 900)
+    agregarItemCarrito(2, "FULL STACK", 500, "./FULLSTACK.png")
     console.log(cursosComprados)
 }
 
 bttPython.onclick = () => {
     cursoComprado.innerHTML = "<h2>AGREGASTE EL CURSO <FONT COLOR='yellow'>PYT</FONT><FONT COLOR='blue'>HON</FONT> AL CARRITO</h2> <img src='https://seeklogo.com/images/P/python-logo-C50EED1930-seeklogo.com.png' width='80px' height='80px'>"
     sumarItemCarrito(nodoCarrito)
-    agregarItemCarrito(3, "CURSO PYTHON", 9000)
+    agregarItemCarrito(3, "PYTHON", 150, "./PYTHON.png")
 }
 
 function agregarItemCarrito(idProducto, nombreProducto, precioProducto) {
@@ -73,10 +73,11 @@ function sumarItemCarrito(carritoNumero) {
 }
 
 class Producto {
-    constructor(id, nombre, precio) {
+    constructor(id, nombre, precio, img) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+        this.img= img;
         this.cantidad = 1;
     }
 }

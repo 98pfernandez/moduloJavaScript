@@ -11,22 +11,16 @@ body.onload= () => {
 
     const productos = JSON.parse(sessionStorage.getItem("curso"));
 
-    let divProductos;
+    let divProductos='';
+    let precioTotal=0;
+    let cantidadTotal=0;
     productos.forEach(element => {
-        console.log(element)
-        divProductos+="<div class='fila'><div class='nombreCarrito'>"+element.nombre +"</div>  <div class='cantidadCarrito'>"+ element.cantidad+"</div> <div class='precioCarrito'>"+element.precio+"</div> <div class='totalCarrito'></div></div>";
+        precioTotal+=(element.precio*element.cantidad);
+        cantidadTotal+=element.cantidad;
+        divProductos+="<div class='fila'><div class='imagenCarrito'><img class='imgCurso' src="+element.img+"></div><div class='nombreCarrito'>"+element.nombre +"</div>  <div class='cantidadCarrito'>"+ element.cantidad+"</div> <div class='precioCarrito'>"+element.precio+ " USD"+"</div> <div class='totalCarrito'>"+(element.precio*element.cantidad) +" USD"+"</div></div>";
 
     });
-    listaCarrito.innerHTML =divProductos;
+    divProductos+="<div class='fila'><div class='imagenCarrito'></div><div class='nombreCarrito'></div>  <div class='cantidadCarrito'>"+cantidadTotal+"</div> <div class='precioCarrito'></div> <div class='totalCarrito'>"+precioTotal +" USD"+"</div></div>";
+    listaCarrito.innerHTML+=divProductos;
 
-
-/*
-    let divProductos;
-    productos.array.forEach(e => {
-        divProductos+="<div class='item'>"+e.nombre+"</div>"
-    });
-
-
-    listaCarrito.innerHTML =divProductos;*/
-   
 }
