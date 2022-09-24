@@ -3,23 +3,32 @@ const buttonFull = document.querySelector("#bttFullStack");
 const bttPython = document.querySelector("#bttPython");
 
 const cursoComprado = document.querySelector("#cursoComprado");
-const body=document.querySelector("body");
+const body = document.querySelector("body");
 const nodoCarrito = document.querySelector("#contadorCarrito");
 
-const cursosComprados = [];
+const cursosComprados = JSON.parse(sessionStorage.getItem("curso")) == null ? [] : JSON.parse(sessionStorage.getItem("curso"));
 
 
 
 const carrito = document.querySelector("#bttCarrito");
-carrito.onclick = () => {
-    alert("PASE")
-    sessionStorage.setItem("curso", JSON.stringify(cursosComprados))
-    
-    sessionStorage.setItem("cantidadItemCarrito", nodoCarrito.textContent);
-    /*cursosComprados.forEach(curso => {
-        sessionStorage.setItem("curso", JSON.stringify(curso))
 
-    })*/
+
+body.onload = () => {
+    //CUANDO CARGA EL HTML OBTIENE LA CANTIDAD DE ITEMS QUE HAY EN EL CARRITO. SI ES LA PRIMERA VEZ QUE SE EJECUTA SE CREA EL ITEM
+    let numeroDeItemsCarrito = sessionStorage.getItem("cantidadItemCarrito");
+
+    if (numeroDeItemsCarrito == null || numeroDeItemsCarrito == '') {
+        sessionStorage.setItem("cantidadItemCarrito", "0");
+    }
+
+    nodoCarrito.innerText = sessionStorage.getItem("cantidadItemCarrito");
+}
+
+carrito.onclick = () => {
+    sessionStorage.setItem("curso", JSON.stringify(cursosComprados))
+
+    //ALMACENAMOS EN LA SESSION STORAGEe EL NUMERO DE ITEMS DEL CARRITO 
+    sessionStorage.setItem("cantidadItemCarrito", nodoCarrito.textContent);
 }
 
 buttonJava.onclick = () => {
