@@ -22,7 +22,7 @@ body.onload = () => {
     });
 
     //Totales de cantidad y monto
-    divProductos += "<div class='fila'><div class='imagenCarrito'><img style=width:200px src='./Transparent.gif'></div><div class='nombreCarrito'></div>  <div class='cantidadCarrito'>" + cantidadTotal + "</div> <div class='precioCarrito'></div> <div class='totalCarrito'>" + precioTotal + " USD" + "</div></div>";
+    divProductos += "<div class='fila'><div class='imagenCarrito'><img style=width:200px src='./Transparent.gif'></div><div class='nombreCarrito'>TOTAL:</div>  <div class='cantidadCarrito'>" + cantidadTotal + "</div> <div class='precioCarrito'></div> <div class='totalCarrito'>" + precioTotal + " USD" + "</div></div>";
 
     //Agregamos boton al final de la lista
     divProductos += "<div><button id='botonComprar'>Comprar</button></div>"
