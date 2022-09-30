@@ -41,22 +41,7 @@ buttonJava.onclick = () => {
 
     agregarItemCarrito(1, "JAVA", 200, "../assets/JAVA.png")
 
-    swal({
-        title: "¿Desea comprar estos articulos por un total de:?",
-        text: "Una vez que compre perdera sus items del carrito",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          swal("Gracias por su compra!", {
-            icon: "success",
-          });
-        } else {
-          swal("Cancelo su compra");
-        }
-      });
+
 }
 
 
