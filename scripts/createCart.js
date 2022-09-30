@@ -10,12 +10,11 @@ body.onload= () => {
 
     const productos = JSON.parse(localStorage.getItem("curso"));
 
-    let divProductos='';
-    let precioTotal=0;
-    let cantidadTotal=0;
+    let divProductos = '';
+    let precioTotal = 0;
+    let cantidadTotal = 0;
     productos.forEach(element => {
         console.log(productos)
-        precioTotal+=(element.precio*element.cantidad);
         cantidadTotal+=element.cantidad;
 
         let{nombre:nombreConDesestructuracion}=element;

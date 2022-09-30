@@ -1,16 +1,18 @@
+const body = document.querySelector("body");
+const carrito = document.querySelector("#bttCarrito");
+
+//Botones de comprar por cada curso
 const buttonJava = document.querySelector("#bttJava");
 const buttonFull = document.querySelector("#bttFullStack");
 const bttPython = document.querySelector("#bttPython");
 
-const cursoComprado = document.querySelector("#cursoComprado");
-const body = document.querySelector("body");
+//Numero de items del carrito
 const nodoCarrito = document.querySelector("#contadorCarrito");
 
 const cursosComprados = JSON.parse(localStorage.getItem("curso")) == null ? [] : JSON.parse(localStorage.getItem("curso"));
 
-
-
-const carrito = document.querySelector("#bttCarrito");
+//DIV DONDE SE VAN A COLOCAR LOS CURSOS COMPRADOS
+const cursoComprado = document.querySelector("#cursoComprado");
 
 
 body.onload = () => {
@@ -31,7 +33,8 @@ carrito.onclick = () => {
 }
 
 buttonJava.onclick = () => {
-    cursoComprado.style.visibility ="visible";
+    //Mostramos el mensaje 2 segundos
+    cursoComprado.style.visibility = "visible";
     cursoComprado.innerHTML = "<h2>AGREGASTE EL CURSO <FONT COLOR='red'>JAVA</FONT> AL CARRITO</h2> <img src='https://cdn-icons-png.flaticon.com/512/226/226777.png' width='80px' height='80px'>"
     setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2500);
     sumarItemCarrito(nodoCarrito);
@@ -43,7 +46,8 @@ buttonJava.onclick = () => {
 
 
 buttonFull.onclick = () => {
-    cursoComprado.style.visibility ="visible";
+    //Mostramos el mensaje 2 segundos
+    cursoComprado.style.visibility = "visible";
     cursoComprado.innerHTML = "<h2>AGREGASTE  EL CURSO  <FONT COLOR='blue'>FULL STACK</FONT> AL CARRITO</h2> <img src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1468442513/ntffgniiqfya5tvzbsol.png' width='80px' height='80px'>"
     setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2500);
     sumarItemCarrito(nodoCarrito)
@@ -52,7 +56,8 @@ buttonFull.onclick = () => {
 }
 
 bttPython.onclick = () => {
-    cursoComprado.style.visibility ="visible";
+    //Mostramos el mensaje 2 segundos
+    cursoComprado.style.visibility = "visible";
     cursoComprado.innerHTML = "<h2>AGREGASTE EL CURSO <FONT COLOR='yellow'>PYT</FONT><FONT COLOR='blue'>HON</FONT> AL CARRITO</h2> <img src='https://seeklogo.com/images/P/python-logo-C50EED1930-seeklogo.com.png' width='80px' height='80px'>"
     setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2500);
     
@@ -62,19 +67,20 @@ bttPython.onclick = () => {
 
 function agregarItemCarrito(idProducto, nombreProducto, precioProducto, imagenProducto) {
     if (cursosComprados.some(curso => curso.id === idProducto)) {
-        //SI EXISTE EL CURSO CON ID 1, LE SUMAMOS UNO A LA CANTIDAD
+        //Si ya existe el curso con ID=x, para esa posicion le sumamos uno a la cantidad
         cursosComprados.forEach(curso => {
             if (curso.id === idProducto) {
                 curso.cantidad ++ ;
             }
         });
     } else {
-        //SI NO EXISTE EL CURSO CON ID 1 LO CREAMOS
+        //Si no existe el curso con ID=x lo creamos y lo pusheamos al Array
         cursosComprados.push(new Producto(idProducto, nombreProducto, precioProducto, imagenProducto))
     }
 }
 
 function sumarItemCarrito(carritoNumero) {
+    //Aumenta en 1 la cantidad de items del carrito.
     carritoNumero.innerText = parseInt(carritoNumero.textContent) + 1
 }
 
@@ -83,7 +89,7 @@ class Producto {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
-        this.img= img;
+        this.img = img;
         this.cantidad = 1;
     }
 }
