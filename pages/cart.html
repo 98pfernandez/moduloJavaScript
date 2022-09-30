@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body>
     <div class="menu">
-        <a id="titulo" href="./index.html">Venta de cursos</a>
+        <a id="titulo" href="../index.html">Venta de cursos</a>
 
         <div class="carrito">
             <span id="contadorCarrito"></span>
-            <a id="bttCarrito" href="./cart.html"><img style="height:100px; width:100px" src="./1.png"
+            <a id="bttCarrito" href="./cart.html"><img style="height:100px; width:100px" src="../assets/1.png"
                     alt="carrito"></a>
         </div>
     </div>
@@ -23,16 +23,23 @@
 
     <div id="listaCarrito">
         <div class='fila' style="border: black solid 5px; border-bottom: black solid 3px;">
-            <div class='imagenCarrito'><img class="imgCurso" src="./Transparent.gif"></div>
+            <div class='imagenCarrito'><img class="imgCurso" src="../assets/Transparent.gif"></div>
             <div class='nombreCarrito'>CURSO:</div>
             <div class='cantidadCarrito'>CANTIDAD:</div>
             <div class='precioCarrito'>PRECIO:</div>
             <div class='totalCarrito'>TOTAL:</div>
         </div>
 
-        
+
     </div>
-    <script src="./createCart.js"></script>
+
+    <dialog id="modal">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eaque veniam aspernatur architecto voluptatem,
+            vel numquam ad et esse in modi similique itaque ducimus iusto quas suscipit delectus dolores. Nihil?</p>
+        <button id="cerrarModal"></button>
+    </dialog>
+
+    <script src="../scripts/createCart.js"></script>
 </body>
 
 </html>
