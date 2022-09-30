@@ -178,3 +178,7 @@ h1 {
     color: white;
     background-color: rgb(27, 27, 27);
 }
+
+.swal-overlay {
+    backdrop-filter: blur(5px);
+  }

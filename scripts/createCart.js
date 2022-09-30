@@ -14,7 +14,6 @@ body.onload= () => {
     let precioTotal = 0;
     let cantidadTotal = 0;
     productos.forEach(element => {
-        console.log(productos)
         cantidadTotal+=element.cantidad;
 
         let{nombre:nombreConDesestructuracion}=element;
@@ -28,7 +27,28 @@ body.onload= () => {
    //AGREGAMOS BOTON
    divProductos+="<div><button id='botonComprar'>Comprar</button></div>"
     listaCarrito.innerHTML+=divProductos;
+}
 
+const bttComprar= document.body.querySelector("#botonComprar");
+
+bttComprar.onclick=() => {
+    swal({
+        title: "¿Desea comprar estos cursos?",
+        text: "Una vez que compre perdera sus items del carrito",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            localStorage.clear;
+          swal("Gracias por su compra!", {
+            icon: "success",
+          });
+        } else {
+          swal("Cancelo su compra");
+        }
+      });
 }
 
 

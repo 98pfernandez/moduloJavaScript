@@ -41,7 +41,22 @@ buttonJava.onclick = () => {
 
     agregarItemCarrito(1, "JAVA", 200, "../assets/JAVA.png")
 
-    console.log(cursosComprados)
+    swal({
+        title: "¿Desea comprar estos articulos por un total de:?",
+        text: "Una vez que compre perdera sus items del carrito",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Gracias por su compra!", {
+            icon: "success",
+          });
+        } else {
+          swal("Cancelo su compra");
+        }
+      });
 }
 
 
@@ -52,7 +67,6 @@ buttonFull.onclick = () => {
     setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2500);
     sumarItemCarrito(nodoCarrito)
     agregarItemCarrito(2, "FULL STACK", 500, "../assets/FULLSTACK.png")
-    console.log(cursosComprados)
 }
 
 bttPython.onclick = () => {
