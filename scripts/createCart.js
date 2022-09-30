@@ -2,7 +2,7 @@ const body = document.querySelector("body");
 const listaCarrito = document.querySelector("#listaCarrito");
 
 //CUANDO CARGA LA PAGINA SE GENERA EL CARRITO
-body.onload= () => {
+body.onload = () => {
     localStorage.getItem("cantidadItemCarrito");
     const nodoCarrito = document.querySelector("#contadorCarrito");
 
@@ -14,41 +14,47 @@ body.onload= () => {
     let precioTotal = 0;
     let cantidadTotal = 0;
     productos.forEach(element => {
-        cantidadTotal+=element.cantidad;
+        cantidadTotal += element.cantidad;
 
-        let{nombre:nombreConDesestructuracion}=element;
+        let { nombre: nombreConDesestructuracion } = element;
 
-        divProductos+="<div class='fila'><div class='imagenCarrito'><img class='imgCurso' src="+element.img+"></div><div class='nombreCarrito'>"+nombreConDesestructuracion +"</div>  <div class='cantidadCarrito'>"+ element.cantidad+"</div> <div class='precioCarrito'>"+element.precio+ " USD"+"</div> <div class='totalCarrito'>"+(element.precio*element.cantidad) +" USD"+"</div></div>";
+        divProductos += "<div class='fila'><div class='imagenCarrito'><img class='imgCurso' src=" + element.img + "></div><div class='nombreCarrito'>" + nombreConDesestructuracion + "</div>  <div class='cantidadCarrito'>" + element.cantidad + "</div> <div class='precioCarrito'>" + element.precio + " USD" + "</div> <div class='totalCarrito'>" + (element.precio * element.cantidad) + " USD" + "</div></div>";
 
     });
     //AGREGAMOS TOTALES DE CANTIDAD Y EFECTIVO
-    divProductos+="<div class='fila'><div class='imagenCarrito'><img style=width:200px src='../assets/Transparent.gif'></div><div class='nombreCarrito'></div>  <div class='cantidadCarrito'>"+cantidadTotal+"</div> <div class='precioCarrito'></div> <div class='totalCarrito'>"+precioTotal +" USD"+"</div></div>";
-   
-   //AGREGAMOS BOTON
-   divProductos+="<div><button id='botonComprar'>Comprar</button></div>"
-    listaCarrito.innerHTML+=divProductos;
+    divProductos += "<div class='fila'><div class='imagenCarrito'><img style=width:200px src='../assets/Transparent.gif'></div><div class='nombreCarrito'></div>  <div class='cantidadCarrito'>" + cantidadTotal + "</div> <div class='precioCarrito'></div> <div class='totalCarrito'>" + precioTotal + " USD" + "</div></div>";
+
+    //AGREGAMOS BOTON
+    divProductos += "<div><button id='botonComprar'>Comprar</button></div>"
+    listaCarrito.innerHTML += divProductos;
 }
 
-const bttComprar= document.body.querySelector("#botonComprar");
+const bttComprar = document.querySelector("#botonComprar");
 
-bttComprar.onclick=() => {
+bttComprar.onclick = () => {
     swal({
         title: "¿Desea comprar estos cursos?",
         text: "Una vez que compre perdera sus items del carrito",
         icon: "warning",
         buttons: true,
         dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            localStorage.clear;
-          swal("Gracias por su compra!", {
-            icon: "success",
-          });
-        } else {
-          swal("Cancelo su compra");
-        }
-      });
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Gracias por su compra!", {
+                    icon: "success",
+                });
+                setTimeout(() => {
+                    (
+                        localStorage.clear(),
+                        location.replace("../index.html")
+                    )
+                }, 2000);
+
+            } else {
+                swal("Cancelo su compra");
+            }
+        });
 }
 
 

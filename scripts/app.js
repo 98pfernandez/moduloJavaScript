@@ -40,8 +40,6 @@ buttonJava.onclick = () => {
     sumarItemCarrito(nodoCarrito);
 
     agregarItemCarrito(1, "JAVA", 200, "../assets/JAVA.png")
-
-
 }
 
 
@@ -51,7 +49,9 @@ buttonFull.onclick = () => {
     cursoComprado.innerHTML = "<h2>AGREGASTE  EL CURSO  <FONT COLOR='blue'>FULL STACK</FONT> AL CARRITO</h2> <img src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1468442513/ntffgniiqfya5tvzbsol.png' width='80px' height='80px'>"
     setTimeout(() => {(cursoComprado.style.visibility = "hidden")}, 2500);
     sumarItemCarrito(nodoCarrito)
+    
     agregarItemCarrito(2, "FULL STACK", 500, "../assets/FULLSTACK.png")
+
 }
 
 bttPython.onclick = () => {
