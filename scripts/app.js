@@ -90,5 +90,6 @@ class Producto {
         this.precio = precio;
         this.img = img;
         this.cantidad = 1;
+        this.moneda= "USD";
     }
 }
